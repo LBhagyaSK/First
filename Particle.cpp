@@ -34,7 +34,7 @@ void Particle::Draw()
 	
 	
 	uint32_t count = 0;
-	std::array<Vertex, 4000> vertices;
+	static std::array<Vertex, 4000000> vertices;
 
 	Vertex* buffer = vertices.data();
 
@@ -155,16 +155,16 @@ void Particle::Update() {
 	}
 }
 
-const size_t MaxQuadCount = 10000;
-const size_t MaxVertexCount = MaxQuadCount * 4;
-const size_t MaxIndexCount = MaxQuadCount * 6;
+static const size_t MaxQuadCount = 1000000;
+static const size_t MaxVertexCount = MaxQuadCount * 4;
+static const size_t MaxIndexCount = MaxQuadCount * 6;
 
 
 void Particle::Init()
 {
 
 
-	uint32_t indices[MaxIndexCount];
+	static uint32_t indices[MaxIndexCount];
 	uint32_t offset = 0;
 	for (size_t i = 0; i < MaxIndexCount; i += 6)
 	{
