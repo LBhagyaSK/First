@@ -1,0 +1,29 @@
+﻿  Main.cpp
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Shader.h(56,40): warning C4101: 'e': unreferenced local variable
+  Particle.cpp
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Shader.h(56,40): warning C4101: 'e': unreferenced local variable
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+H:\OpenGLProjects\Projects\OpenGLTestOne\Dependencies\include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(5,1): warning C4005: '_WIN32': macro redefinition
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp : message : see previous definition of '_WIN32'
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(21,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(22,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(23,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(85,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+Main.obj : error LNK2019: unresolved external symbol _glfwInit referenced in function _main
+Main.obj : error LNK2019: unresolved external symbol _glfwTerminate referenced in function _main
+Main.obj : error LNK2019: unresolved external symbol _glfwWindowHint referenced in function _main
+Main.obj : error LNK2019: unresolved external symbol _glfwCreateWindow referenced in function _main
+Main.obj : error LNK2019: unresolved external symbol _glfwWindowShouldClose referenced in function _main
+Main.obj : error LNK2019: unresolved external symbol _glfwSetWindowShouldClose referenced in function "void __cdecl processInput(struct GLFWwindow *)" (?processInput@@YAXPAUGLFWwindow@@@Z)
+Main.obj : error LNK2019: unresolved external symbol _glfwSetFramebufferSizeCallback referenced in function _main
+Main.obj : error LNK2019: unresolved external symbol _glfwPollEvents referenced in function _main
+Main.obj : error LNK2019: unresolved external symbol _glfwGetKey referenced in function "void __cdecl processInput(struct GLFWwindow *)" (?processInput@@YAXPAUGLFWwindow@@@Z)
+Main.obj : error LNK2019: unresolved external symbol _glfwMakeContextCurrent referenced in function _main
+Main.obj : error LNK2019: unresolved external symbol _glfwSwapBuffers referenced in function _main
+Main.obj : error LNK2019: unresolved external symbol _glfwGetProcAddress referenced in function _main
+Particle.obj : error LNK2019: unresolved external symbol _glfwGetTime referenced in function "public: void __thiscall Particle::Update(void)" (?Update@Particle@@QAEXXZ)
+H:\OpenGLProjects\Projects\OpenGLTestOne\Dependencies\libs\glfw3.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+H:\OpenGLProjects\Projects\OpenGLTestOne\Dependencies\libs\assimp-vc140-mt.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+H:\OpenGLProjects\Projects\OpenGLTestOne\Debug\NewParticle.exe : fatal error LNK1120: 13 unresolved externals
