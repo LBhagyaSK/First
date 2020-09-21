@@ -1,3 +1,6 @@
-﻿  Main.cpp
+﻿  Particle.cpp
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Shader.h(56,40): warning C4101: 'e': unreferenced local variable
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(20,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(21,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(22,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   NewParticle.vcxproj -> H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\NewParticle.exe

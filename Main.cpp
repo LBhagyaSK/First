@@ -50,32 +50,34 @@ int main()
 
     Shader shader("particle.vs", "particle.fs");
 
-    p = new Particle(shader,50,0.001f);
+    p = new Particle(shader,250,0.001f);
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
    
-    //glm::vec2 a = p->setDirection();
-    float gV = 1.0f;
+    
+   
     while (!glfwWindowShouldClose(window))
     {
-        //p = new Particle(shader, 50, 0.001f);
-       // p->Generate(p->particles[0]);
+        
             processInput(window);
           
-           // p->Update();
-
+           p->Update();
+            
+           
             glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
+           
    
             p->Draw();
 
-            //delete p;
-             
+            
             glfwSwapBuffers(window);
             glfwPollEvents();
       
     }
+    glDeleteVertexArrays(1, &p->VAO);
+    glDeleteBuffers(1, &p->VBO);
+    glDeleteBuffers(1, &p->EBO);
    
     glfwTerminate();
     return 0;

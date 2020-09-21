@@ -25,22 +25,14 @@ glm::vec3 Particle::setDirection() {
 	return Particle::direction;
 }
 
-vec3 Particle::setD() {
-	float random1 = ((rand() % 100) / 100.0f) - 0.5;
-	float random2 = ((rand() % 100) / 100.0f) - 0.5;
-	float random3 = ((rand() % 100) / 100.0f) - 0.5;
-
-	Particle::Direction = { random1, random2, random3 };
-	return Particle::Direction;
-}
 
 
 void Particle::Draw()
 {
-	Particle::Update();
+	//Particle::Update();
 
-
-	this->shader.use();
+	
+	
 	uint32_t count = 0;
 	std::array<Vertex, 4000> vertices;
 
@@ -59,14 +51,14 @@ void Particle::Draw()
 				{
 
 		
+					float z = particle.Color.b;
+					buffer = Particle::CreateQuad(buffer, particle.Position, z,0.0f,0.0f);
+					count += 6;
 
-			buffer = Particle::CreateQuad(buffer, particle.Position,0.0f,0.0f);
-			count += 6;
 
+				}
 
-		}
-
-	}
+			}
 	//auto q0 = CreateQuad(-0.75f, -0.5f);
 	/*auto q1 = CreateQuad(0.5f, -0.5f);
 
@@ -113,6 +105,8 @@ void Particle::Draw()
 
 			glClear(GL_COLOR_BUFFER_BIT);
 			this->shader.use();
+
+			
 				
 			glBindVertexArray(this->VAO);
 			glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, 0);
@@ -140,28 +134,28 @@ void Particle::Update() {
 	
 	for (int  i = 0; i < this->amount; i++)
 	{
-		vec3 l = { 0.1f,1.0f,0.1f };
+		
 		Vertex& p = this->particles[i];
 		p.life -= this->dt;
 		if (p.life > 0.0f)
 		{
 			p.Position -= p.Direction* this->dt;
-			p.Color.z -= this->dt;
+			p.Color.b -= 0.1f;
 			
 			
 		}
 
 		else {
 
-			p.Position = { 0.0f, 0.0f, 0.0f };
-			p.Color = { 1.0f, 1.0f, 1.0f, 1.0f };
+			p.Position = glm::vec3( 0.0f, 0.0f, 0.0f );
+			p.Color =  glm::vec4(0.0f, 0.0f, 1.0f, 1.0f );
 			p.life = (((rand() % 100) / 100.0f));
 			
 		}
 	}
 }
 
-const size_t MaxQuadCount = 1000;
+const size_t MaxQuadCount = 10000;
 const size_t MaxVertexCount = MaxQuadCount * 4;
 const size_t MaxIndexCount = MaxQuadCount * 6;
 
@@ -187,17 +181,17 @@ void Particle::Init()
 	}
 
 
-	unsigned int EBO;
+	
 	glGenVertexArrays(1, &this->VAO);
 	glGenBuffers(1, &this->VBO);
-	glGenBuffers(1, &EBO);
+	glGenBuffers(1, &this->EBO);
 
 	glBindVertexArray(this->VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
 	glBufferData(GL_ARRAY_BUFFER, MaxVertexCount*sizeof(Vertex),nullptr, GL_DYNAMIC_DRAW);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Position));
@@ -225,13 +219,13 @@ void Particle::Generate(Vertex& particles)
 	particles.life = (((rand() % 100) / 100.0f));
 	
 	particles.Position = glm::vec3(0.0f, 0.0f, 0.0f);
-	particles.Color = { 0.0f, 1.0f, 0.0f, 1.0f };
+	particles.Color = glm::vec4( 0.0f, 0.0f, 1.0f, 1.0f );
 
 }
 
 
-//(((rand() % 100) / 100.0f));
-Vertex* Particle::CreateQuad(Vertex* target,glm::vec3 particle,float x, float y) {
+
+Vertex* Particle::CreateQuad(Vertex* target,glm::vec3 particle,float z,float x, float y) {
 
 		
 
@@ -245,21 +239,21 @@ Vertex* Particle::CreateQuad(Vertex* target,glm::vec3 particle,float x, float y)
 				float size = 0.01f;
 
 				target->Position = glm::vec3(x, y, 0.0f);
-				target->Color = { 1.0f, 0.0f, 0.0f, 1.0 };
+				target->Color = glm::vec4(0.0f, 0.0f,1.0f, 1.0);
 				target->Offset = particle;
 				target++;
 
-				target->Position = { x + size,y,0.0f };
-				target->Color = { 0.0f, 1.0f, 0.0f, 1.0 };
+				target->Position = glm::vec3( x + size,y,0.0f );
+				target->Color = glm::vec4(0.0f, 0.0f, 1.0f, 1.0);
 				target->Offset = particle;
 
-				target->Position = { x + size,y + size,0.0f };
-				target->Color = { 0.0f, 0.0f, 1.0f, 1.0 };
+				target->Position =glm::vec3( x + size,y + size,0.0f );
+				target->Color = glm::vec4(0.0f, 0.0f, 1.0f, 1.0);
 				target->Offset = particle;
 				target++;
 
-				target->Position = { x ,y + size,0.0f };
-				target->Color = { 1.0f, 1.0f, 0.0f, 1.0 };
+				target->Position = glm::vec3( x ,y +size,0.0f );
+				target->Color = glm::vec4(0.0f, 0.0f, 1.0f, 1.0);
 				target->Offset = particle;
 				target++;
 			//}

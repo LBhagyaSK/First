@@ -24,8 +24,8 @@ struct vec4
 struct Vertex
 {
 	glm::vec3 Position,Direction;
-	vec4 Color;
-	glm::vec3 Offset,direction;
+	glm::vec4 Color;
+	glm::vec3 Offset;
 	float life;
 };
 struct Particles
@@ -54,10 +54,10 @@ public:
 	Shader shader;
 	int amount;
 	float dt;
-	unsigned int VAO, VBO;
+	unsigned int VAO, VBO,EBO;
 	glm::vec3 setOrigin();
 	glm::vec3 setDirection();
-	vec3 setD();
+
 	void Init();
 	//void Generate(Particles &particles);
 	void Generate(Vertex& particles);
@@ -65,8 +65,8 @@ public:
 	//float gV = 1.0f;
 	void Update();
 
-	Vertex* CreateQuad(Vertex* target, glm::vec3 particle, float x, float y);
-	Vertex* CreateQuad1(Vertex* target, float x, float y);
+	Vertex* CreateQuad(Vertex* target, glm::vec3 particle, float z, float x, float y);
+	
 
 	
 
