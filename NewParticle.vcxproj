@@ -156,11 +156,14 @@
     <ClCompile Include="Particle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="anything.vs" />
+    <None Include="Camera.fs" />
+    <None Include="Camera.vs" />
     <None Include="particle.fs" />
     <None Include="particle.vs" />
   </ItemGroup>

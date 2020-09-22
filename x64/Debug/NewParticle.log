@@ -1,5 +1,14 @@
-﻿  Main.cpp
+﻿  glad.c
+  Main.cpp
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Shader.h(56,40): warning C4101: 'e': unreferenced local variable
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Main.cpp(78,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Main.cpp(143,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Main.cpp(144,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Main.cpp(148,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Main.cpp(149,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Main.cpp(151,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Main.cpp(152,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Main.cpp(161,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Particle.cpp
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Shader.h(56,40): warning C4101: 'e': unreferenced local variable
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(20,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data

@@ -32,6 +32,9 @@
     <ClInclude Include="Particle.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="particle.vs">
@@ -41,6 +44,12 @@
       <Filter>Source Files</Filter>
     </None>
     <None Include="anything.vs">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Camera.vs">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="Camera.fs">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
