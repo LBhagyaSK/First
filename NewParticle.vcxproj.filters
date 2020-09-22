@@ -46,11 +46,5 @@
     <None Include="anything.vs">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="Camera.vs">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="Camera.fs">
-      <Filter>Source Files</Filter>
-    </None>
   </ItemGroup>
 </Project>

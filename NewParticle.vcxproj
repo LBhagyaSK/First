@@ -162,8 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="anything.vs" />
-    <None Include="Camera.fs" />
-    <None Include="Camera.vs" />
     <None Include="particle.fs" />
     <None Include="particle.vs" />
   </ItemGroup>
