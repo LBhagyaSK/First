@@ -34,7 +34,7 @@ void Particle::Draw()
 	
 	
 	uint32_t count = 0;
-	static std::array<Vertex, 100> vertices;
+	static std::array<Vertex, 1000> vertices;
 
 	Vertex* buffer = vertices.data();
 
@@ -140,8 +140,7 @@ void Particle::Update() {
 		if (p.life > 0.0f)
 		{
 			p.Position -= p.Direction* this->dt;
-			p.Color.b -= 0.1f;
-			
+			p.Color.b -= this->dt;
 			
 		}
 
@@ -155,7 +154,7 @@ void Particle::Update() {
 	}
 }
 
-static const size_t MaxQuadCount = 100;
+static const size_t MaxQuadCount = 1000;
 static const size_t MaxVertexCount = MaxQuadCount * 4;
 static const size_t MaxIndexCount = MaxQuadCount * 6;
 
@@ -179,8 +178,6 @@ void Particle::Init()
 		offset += 4;
 
 	}
-
-
 	
 	glGenVertexArrays(1, &this->VAO);
 	glGenBuffers(1, &this->VBO);
@@ -189,18 +186,18 @@ void Particle::Init()
 	glBindVertexArray(this->VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
-	glBufferData(GL_ARRAY_BUFFER, MaxVertexCount*sizeof(Vertex),nullptr, GL_DYNAMIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, MaxVertexCount * sizeof(Vertex),nullptr, GL_DYNAMIC_DRAW);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Position));
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, Position));
 	glEnableVertexAttribArray(0);
 
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Color));
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, Color));
 	glEnableVertexAttribArray(1);
 
-	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Offset));
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)offsetof(Vertex, Offset));
 	glEnableVertexAttribArray(2);
 
 	for (int i = 0; i < this->amount; i++) {
@@ -239,21 +236,22 @@ Vertex* Particle::CreateQuad(Vertex* target,glm::vec3 particle,float z,float x, 
 				float size = 0.01f;
 
 				target->Position = glm::vec3(x, y, 0.0f);
-				target->Color = glm::vec4(0.0f, 0.0f,1.0f, 1.0);
+				target->Color = glm::vec4(0.0, 0.0,z, 1.0);
 				target->Offset = particle;
 				target++;
 
 				target->Position = glm::vec3( x + size,y,0.0f );
-				target->Color = glm::vec4(0.0f, 0.0f, 1.0f, 1.0);
+				target->Color = glm::vec4(0.0, 0.0, z, 1.0);
 				target->Offset = particle;
+				target++;
 
 				target->Position =glm::vec3( x + size,y + size,0.0f );
-				target->Color = glm::vec4(0.0f, 0.0f, 1.0f, 1.0);
+				target->Color = glm::vec4(0.0f, 0.0, z, 1.0);
 				target->Offset = particle;
 				target++;
 
 				target->Position = glm::vec3( x ,y +size,0.0f );
-				target->Color = glm::vec4(0.0f, 0.0f, 1.0f, 1.0);
+				target->Color = glm::vec4(0.0, 0.0, z, 1.0);
 				target->Offset = particle;
 				target++;
 			//}

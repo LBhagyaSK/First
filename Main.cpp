@@ -50,7 +50,7 @@ int main()
 
     Shader shader("particle.vs", "particle.fs");
 
-    p = new Particle(shader,2,0.001f);
+    p = new Particle(shader,25,0.001f);
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);

@@ -54,7 +54,7 @@ public:
 	Shader shader;
 	int amount;
 	float dt;
-	unsigned int VAO, VBO,EBO;
+	unsigned int VAO, VBO, EBO;
 	glm::vec3 setOrigin();
 	glm::vec3 setDirection();
 
@@ -65,7 +65,7 @@ public:
 	//float gV = 1.0f;
 	void Update();
 
-	Vertex* CreateQuad(Vertex* target, glm::vec3 particle, float z, float x, float y);
+	static Vertex* CreateQuad(Vertex* target, glm::vec3 particle, float z, float x, float y);
 	
 
 	

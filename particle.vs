@@ -8,7 +8,7 @@ out vec4 color;
 
 void main()
 {
-   
+     float scale = 10.0f;
     gl_Position =  vec4((aPos+ offset),1.0f); 
     color = aColor;
 }

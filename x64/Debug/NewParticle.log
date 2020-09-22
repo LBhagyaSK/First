@@ -1,5 +1,4 @@
-﻿  glad.c
-  Main.cpp
+﻿  Main.cpp
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Shader.h(56,40): warning C4101: 'e': unreferenced local variable
   Particle.cpp
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Shader.h(56,40): warning C4101: 'e': unreferenced local variable
