@@ -27,6 +27,7 @@ struct Vertex
 	glm::vec4 Color;
 	glm::vec3 Offset;
 	float life;
+	float size;
 };
 struct Particles
 {
@@ -65,7 +66,7 @@ public:
 	//float gV = 1.0f;
 	void Update();
 
-	static Vertex* CreateQuad(Vertex* target, glm::vec3 particle, glm::vec3 direction, float z, float x, float y);
+	static Vertex* CreateQuad(Vertex* target,float size, glm::vec3 particle, glm::vec3 direction, float z, float x, float y);
 	
 
 	

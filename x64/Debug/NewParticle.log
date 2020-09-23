@@ -4,19 +4,5 @@ H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(21,16): warnin
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(22,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(23,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(48,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(init.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(input.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(input.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(monitor.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(vulkan.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(vulkan.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(window.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_init.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_joystick.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_joystick.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_monitor.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_time.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_time.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_thread.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_thread.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_window.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(wgl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(wgl_context.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(egl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(egl_context.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(osmesa_context.obj)' or at 'H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\glfw.pdb'; linking object as if no debug info
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(88,31): warning C4305: 'initializing': truncation from 'double' to 'float'
   NewParticle.vcxproj -> H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\NewParticle.exe

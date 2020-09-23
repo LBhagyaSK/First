@@ -52,7 +52,7 @@ void Particle::Draw()
 
 
 						float z = particle.Color.g;
-						buffer = Particle::CreateQuad(buffer, glm::vec3(x,y,0.0f),particle.Position, z, 0.0f, 0.0f);
+						buffer = Particle::CreateQuad(buffer,particle.size, glm::vec3(0.0f,0.0f,0.0f),particle.Position, z, 0.0f, 0.0f);
 						count += 6;
 					
 						i = i + 1.0f;
@@ -82,6 +82,10 @@ void Particle::Draw()
 
 void Particle::Update() {
 	
+	float x = 0.0f;
+	//float y = 0.0f;
+	
+	float speedIncreaze = 0.00001;
 	for (int  i = 0; i < this->amount; i++)
 	{
 		
@@ -89,9 +93,18 @@ void Particle::Update() {
 		p.life -= this->dt;
 		if (p.life > 0.0f)
 		{
+			
+
 			glm::vec3 k = Particle::setDirection();
-			p.Position -= p.Direction * this->dt;//+ (float)glfwGetTime()/100);
-			p.Color.g += 0.0007f;
+			p.Position -= glm::vec3(0.0f + x, (float)(((rand() % 100) / 100.0f) - 0.5)/2.0f, 0.0f) * this->dt*(20.0f+ speedIncreaze); //glm::vec3(0.0f+x, 0.0f+y, 0.0f+z) * this->dt* (float)(((rand() % 100) / 100.0f) - 0.5)*5.0f;//p.Direction * this->dt;//+ (float)glfwGetTime()/100);
+			p.Color.g += 0.0008f;
+			p.size -= speedIncreaze;
+			
+			x += 0.1f;
+			//y += 0.1f;
+			//z += 0.0001f;
+			x = sqrt(x)*x/2.0f;
+			//y = (sqrt(y)*y) / sqrt(2.0f);
 			
 		}
 
@@ -100,6 +113,7 @@ void Particle::Update() {
 			p.Position = glm::vec3(0.0f, 0.0f, 0.0f);// Particle::setDirection(); //glm::vec3( 0.0f, 0.0f, 0.0f );
 			p.Color =  glm::vec4(1.0f, 0.0f, 0.0f, 1.0f );
 			p.life = (((rand() % 100) / 100.0f));
+			p.size = 0.008f;
 			
 		}
 	}
@@ -169,13 +183,14 @@ void Particle::Generate(Vertex& particles)
 	
 	particles.Position = glm::vec3(0.0f, 0.0f, 0.0f); //Particle::setDirection();//glm::vec3(0.0f, 0.0f, 0.0f);
 	particles.Color = glm::vec4( 1.0f, 0.0f, 0.0f, 1.0f );
+	particles.size = 0.008f;
 	//particles.Color.g = 1.0f;
 
 }
 
 
 
-Vertex* Particle::CreateQuad(Vertex* target,glm::vec3 particle,glm::vec3 direction,float z,float x, float y) {
+Vertex* Particle::CreateQuad(Vertex* target,float size,glm::vec3 particle,glm::vec3 direction,float z,float x, float y) {
 		
 
 		/*for (Vertex particle : this->particles)
@@ -185,7 +200,7 @@ Vertex* Particle::CreateQuad(Vertex* target,glm::vec3 particle,glm::vec3 directi
 			if (particle.life > 0.0f)
 			{*/
 
-				float size = 0.01f;
+				//float size = 0.01f;
 
 				target->Position = glm::vec3(x, y, 0.0f);
 				target->Color = glm::vec4(1.0,z,0.0, 1.0);

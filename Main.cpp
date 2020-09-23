@@ -67,7 +67,7 @@ int main()
     Shader shader("particle.vs", "particle.fs");
     //Shader ourShader("Camera.vs", "Camera.fs");
 
-    p = new Particle(shader,25000,0.001f);
+    p = new Particle(shader,100000,0.001f);
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
@@ -98,7 +98,21 @@ int main()
             model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
             model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
             shader.setMat4("model", model);
-            
+           /* 
+            glm::mat4 transform = glm::mat4(1.0f);
+            transform = glm::translate(transform, glm::vec3(0.0f, 0.0f, 0.0f));
+            transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+            shader.use();
+            unsigned int transformLoc = glGetUniformLocation(shader.ID, "transform");
+            glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+            */
+
+            glm::mat4 trans = glm::mat4(1.0f);
+            trans = glm::rotate(trans, glm::radians(-90.0f), glm::vec3(0.0, 0.0, 1.0));
+            shader.use();
+            unsigned int transformLoc = glGetUniformLocation(shader.ID, "transform");
+            glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
             p->Draw();
             glfwSwapBuffers(window);
             glfwPollEvents();
