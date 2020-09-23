@@ -32,11 +32,12 @@ void Particle::Draw()
 {
 	
 	uint32_t count = 0;
-	static std::array<Vertex, 400000> vertices;
+	static std::array<Vertex, 4000000> vertices;
 
 	Vertex* buffer = vertices.data();
 
-
+	float r = 0.2f;
+	float i = 0.0f;
 			for (Vertex particle : this->particles)
 			{
 
@@ -44,18 +45,25 @@ void Particle::Draw()
 				if (particle.life > 0.0f)
 				{
 
-		
-					float z = particle.Color.g;
-					buffer = Particle::CreateQuad(buffer, particle.Position, z,0.0f,0.0f);
-					count += 6;
+						float a  = ((i * 3.14159 )/ 180.0);
+						//std::cout << "degree " << 
+						float x = r * cos(a);
+						float y = r * sin(a);
+
+
+						float z = particle.Color.g;
+						buffer = Particle::CreateQuad(buffer, glm::vec3(x,y,0.0f),particle.Position, z, 0.0f, 0.0f);
+						count += 6;
+					
+						i = i + 1.0f;
 
 
 				}
 
 			}
 	
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size() * sizeof(Vertex), vertices.data());
+			glBindBuffer(GL_ARRAY_BUFFER, VBO);
+			glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size() * sizeof(Vertex), vertices.data());
 
 	
 			glClear(GL_COLOR_BUFFER_BIT);
@@ -91,13 +99,13 @@ void Particle::Update() {
 
 			p.Position = glm::vec3(0.0f, 0.0f, 0.0f);// Particle::setDirection(); //glm::vec3( 0.0f, 0.0f, 0.0f );
 			p.Color =  glm::vec4(1.0f, 0.0f, 0.0f, 1.0f );
-			p.life = (((rand() % 100) / 100.0f))*2;
+			p.life = (((rand() % 100) / 100.0f));
 			
 		}
 	}
 }
 
-static const size_t MaxQuadCount = 100000;
+static const size_t MaxQuadCount = 1000000;
 static const size_t MaxVertexCount = MaxQuadCount * 4;
 static const size_t MaxIndexCount = MaxQuadCount * 6;
 
@@ -157,7 +165,7 @@ void Particle::Generate(Vertex& particles)
 	
 	particles.Direction = Particle::setDirection();
 	//particles.velocity = glm::vec2(0.2f,0.3f);
-	particles.life = (((rand() % 100) / 100.0f))*2;
+	particles.life = (((rand() % 100) / 100.0f));
 	
 	particles.Position = glm::vec3(0.0f, 0.0f, 0.0f); //Particle::setDirection();//glm::vec3(0.0f, 0.0f, 0.0f);
 	particles.Color = glm::vec4( 1.0f, 0.0f, 0.0f, 1.0f );
@@ -167,8 +175,7 @@ void Particle::Generate(Vertex& particles)
 
 
 
-Vertex* Particle::CreateQuad(Vertex* target,glm::vec3 particle,float z,float x, float y) {
-
+Vertex* Particle::CreateQuad(Vertex* target,glm::vec3 particle,glm::vec3 direction,float z,float x, float y) {
 		
 
 		/*for (Vertex particle : this->particles)
@@ -181,23 +188,23 @@ Vertex* Particle::CreateQuad(Vertex* target,glm::vec3 particle,float z,float x, 
 				float size = 0.01f;
 
 				target->Position = glm::vec3(x, y, 0.0f);
-				target->Color = glm::vec4(1.0f,z,0.0, 1.0);
-				target->Offset = particle;
+				target->Color = glm::vec4(1.0,z,0.0, 1.0);
+				target->Offset = particle+direction;
 				target++;
 
 				target->Position = glm::vec3( x + size,y,0.0f );
-				target->Color = glm::vec4(1.0f,z, 0.0, 1.0);
-				target->Offset = particle;
+				target->Color = glm::vec4(1.0,z, 0.0, 1.0);
+				target->Offset = particle+direction;
 				target++;
 
 				target->Position =glm::vec3( x + size,y + size,0.0f );
-				target->Color = glm::vec4(1.0f,z, 0.0, 1.0);
-				target->Offset = particle;
+				target->Color = glm::vec4(1.0,z, 0.0, 1.0);
+				target->Offset = particle+direction;
 				target++;
 
 				target->Position = glm::vec3( x ,y +size,0.0f );
-				target->Color = glm::vec4(1.0f, z, 0.0, 1.0);
-				target->Offset = particle;
+				target->Color = glm::vec4(1.0,z, 0.0, 1.0);
+				target->Offset = particle+direction;
 				target++;
 			//}
 		//}

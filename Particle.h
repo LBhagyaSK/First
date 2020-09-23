@@ -65,7 +65,7 @@ public:
 	//float gV = 1.0f;
 	void Update();
 
-	static Vertex* CreateQuad(Vertex* target, glm::vec3 particle, float z, float x, float y);
+	static Vertex* CreateQuad(Vertex* target, glm::vec3 particle, glm::vec3 direction, float z, float x, float y);
 	
 
 	
