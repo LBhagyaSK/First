@@ -55,14 +55,13 @@ void Particle::Draw()
 						float y = r * sin(a);
 
 						float xpos = x *10.0 * ((float)((rand() % 100) / 100.0f)-0.5);
-						float ypos = y * y *  ((float)((rand() % 100) / 100.0f)-0.5);
+						float ypos = y * y/2 *  ((float)((rand() % 100) / 100.0f)-0.5);
 						float zpos = ((float)((rand() % 100) / 100.0f) - 0.5);
 
 						
-						if (xpos > 0.01 )
+						if (xpos > 0.1 )
 						{ 
-							ypos = y* sqrt(y)  * ((float)((rand() % 100) / 100.0f)/2.0f);
-							if (z < 0.02)
+							if (z < 0.01)
 							{
 								buffer = Particle::CreateQuad(buffer, particle.size, glm::vec3(0, 0, 0), particle.Position, z, 0.0f, 0.0f);
 								count += 6;
@@ -74,14 +73,17 @@ void Particle::Draw()
 								z = 0.0f;
 							}
 							
+						
 						}
 						else
 						{
-							float z = particle.Color.g;
-							buffer = Particle::CreateQuad(buffer, particle.size, glm::vec3(xpos, ypos, zpos), particle.Position, particle.Color.g, 0.0f, 0.0f);
-							count += 6;
-							r = r + 0.0001f;
-							i = i + 1.0f;
+							//float w = (1 / 3) * 3.14159 * sqrt(r) * x;
+							
+								//float z = particle.Color.g;
+								buffer = Particle::CreateQuad(buffer, particle.size, glm::vec3(xpos, ypos, zpos), particle.Position*0.5f, particle.Color.g, 0.0f, 0.0f);
+								count += 6;
+								r = r + 0.0001f;
+								i = i + 1.0f;
 
 						}
 						
@@ -136,7 +138,7 @@ void Particle::Update() {
 			p.Color.g += 0.0008f;
 			p.size -= speedIncreaze;
 			
-			x += 0.1f;
+			x += 0.12f;
 			//y += 0.1f;
 			//z += 0.0001f;
 			x = sqrt(x)*x/2.0f;

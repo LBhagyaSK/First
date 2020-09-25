@@ -72,7 +72,9 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
    
-   
+    /*for (int i = 0; i < 200; i++) {
+        p->Update();
+    }*/
     while (!glfwWindowShouldClose(window))
     {
         float currentFrame = glfwGetTime();
