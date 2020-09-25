@@ -36,30 +36,66 @@ void Particle::Draw()
 
 	Vertex* buffer = vertices.data();
 
-	float r = 0.2f;
+	float r = 0.001f;
 	float i = 0.0f;
+	
 			for (Vertex particle : this->particles)
 			{
-
+				float z = particle.Color.g;
+				z -= 0.008;
 				this->shader.use();
 				if (particle.life > 0.0f)
 				{
+					if (r < 0.1f)
+					{
 
-						float a  = ((i * 3.14159 )/ 180.0);
-						//std::cout << "degree " << 
+						float a = ((i * 3.14159) / 180.0);
+						
 						float x = r * cos(a);
 						float y = r * sin(a);
 
+						float xpos = x *10.0 * ((float)((rand() % 100) / 100.0f)-0.5);
+						float ypos = y * y *  ((float)((rand() % 100) / 100.0f)-0.5);
+						float zpos = ((float)((rand() % 100) / 100.0f) - 0.5);
 
-						float z = particle.Color.g;
-						buffer = Particle::CreateQuad(buffer,particle.size, glm::vec3(0.0f,0.0f,0.0f),particle.Position, z, 0.0f, 0.0f);
-						count += 6;
-					
-						i = i + 1.0f;
+						
+						if (xpos > 0.01 )
+						{ 
+							ypos = y* sqrt(y)  * ((float)((rand() % 100) / 100.0f)/2.0f);
+							if (z < 0.02)
+							{
+								buffer = Particle::CreateQuad(buffer, particle.size, glm::vec3(0, 0, 0), particle.Position, z, 0.0f, 0.0f);
+								count += 6;
+								r = r + 0.0001f;
+								i = i + 1.0f;
+							}
+							else
+							{
+								z = 0.0f;
+							}
+							
+						}
+						else
+						{
+							float z = particle.Color.g;
+							buffer = Particle::CreateQuad(buffer, particle.size, glm::vec3(xpos, ypos, zpos), particle.Position, particle.Color.g, 0.0f, 0.0f);
+							count += 6;
+							r = r + 0.0001f;
+							i = i + 1.0f;
+
+						}
+						
+
+					}
+
+					else {
+						r = 0.001;
+					}
 
 
 				}
 
+				
 			}
 	
 			glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -84,7 +120,7 @@ void Particle::Update() {
 	
 	float x = 0.0f;
 	//float y = 0.0f;
-	
+	float spred = 3.5f;
 	float speedIncreaze = 0.00001;
 	for (int  i = 0; i < this->amount; i++)
 	{
@@ -96,7 +132,7 @@ void Particle::Update() {
 			
 
 			glm::vec3 k = Particle::setDirection();
-			p.Position -= glm::vec3(0.0f + x, (float)(((rand() % 100) / 100.0f) - 0.5)/2.0f, 0.0f) * this->dt*(20.0f+ speedIncreaze); //glm::vec3(0.0f+x, 0.0f+y, 0.0f+z) * this->dt* (float)(((rand() % 100) / 100.0f) - 0.5)*5.0f;//p.Direction * this->dt;//+ (float)glfwGetTime()/100);
+			p.Position -= glm::vec3(0.0f + x, (float)(((rand() % 100) / 100.0f) - 0.5) / 2.0f, 0.0f) * this->dt * (20.0f + speedIncreaze);// glm::vec3(0.0f + x * spred, ((rand() % 100) / 100.0f) - 0.5f, ((rand() % 100) / 100.0f) * spred);// //glm::vec3(0.0f+x, 0.0f+y, 0.0f+z) * this->dt* (float)(((rand() % 100) / 100.0f) - 0.5)*5.0f;//p.Direction * this->dt;//+ (float)glfwGetTime()/100);
 			p.Color.g += 0.0008f;
 			p.size -= speedIncreaze;
 			

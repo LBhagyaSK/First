@@ -3,6 +3,11 @@ H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Shader.h(56,40): warning C4
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(21,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(22,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(23,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(48,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(88,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(45,15): warning C4305: '-=': truncation from 'double' to 'float'
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(52,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(57,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(58,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(59,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(92,16): warning C4305: '=': truncation from 'double' to 'float'
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(124,31): warning C4305: 'initializing': truncation from 'double' to 'float'
   NewParticle.vcxproj -> H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\NewParticle.exe
