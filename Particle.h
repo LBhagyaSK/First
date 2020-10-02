@@ -40,6 +40,7 @@ struct Particles
 
 
 
+
 class  Particle
 {
 	glm::vec3  origin;
@@ -55,6 +56,7 @@ public:
 	Shader shader;
 	int amount;
 	float dt;
+	
 	unsigned int VAO, VBO, EBO;
 	glm::vec3 setOrigin();
 	glm::vec3 setDirection();
@@ -70,10 +72,7 @@ public:
 	
 
 	
-
-
 	
-
 
 };
 #endif // !PARTICLE

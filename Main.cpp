@@ -67,7 +67,7 @@ int main()
     Shader shader("particle.vs", "particle.fs");
     //Shader ourShader("Camera.vs", "Camera.fs");
 
-    p = new Particle(shader,20000,0.001f);
+    p = new Particle(shader,50000,0.001f);
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);

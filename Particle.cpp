@@ -9,6 +9,8 @@ Particle::Particle(Shader shader, int amount, float dt) :shader(shader), amount(
 {
 	
 	this->Init();	
+	
+	
 }
 
 glm::vec3 Particle::setOrigin(){
@@ -26,13 +28,14 @@ glm::vec3 Particle::setDirection() {
 	return Particle::direction;
 }
 
-
-
+static const size_t MaxQuadCount = 50000;
+static const size_t MaxVertexCount = MaxQuadCount * 4;
+static const size_t MaxIndexCount = MaxQuadCount * 6;
 void Particle::Draw()
 {
 	
 	uint32_t count = 0;
-	static std::array<Vertex, 4000000> vertices;
+	static std::array<Vertex, 200000> vertices;
 
 	Vertex* buffer = vertices.data();
 
@@ -42,10 +45,11 @@ void Particle::Draw()
 			for (Vertex particle : this->particles)
 			{
 				float z = particle.Color.g;
-				z -= 0.008;
+				//z -= 0.008;
 				this->shader.use();
 				if (particle.life > 0.0f)
 				{
+					
 					if (r < 0.1f)
 					{
 
@@ -59,14 +63,16 @@ void Particle::Draw()
 						float zpos = ((float)((rand() % 100) / 100.0f) - 0.5);
 
 						
-						if (xpos > 0.1 )
+
+						if (xpos > 0.01 )
 						{ 
 							if (z < 0.01)
 							{
-								buffer = Particle::CreateQuad(buffer, particle.size, glm::vec3(0, 0, 0), particle.Position, z, 0.0f, 0.0f);
-								count += 6;
-								r = r + 0.0001f;
-								i = i + 1.0f;
+								
+									buffer = Particle::CreateQuad(buffer, particle.size, glm::vec3(0, 0, 0), particle.Position, z, 0.0f, 0.0f);
+									count += 6;
+									r = r + 0.1f;
+									i = i + 10.0f;
 							}
 							else
 							{
@@ -75,16 +81,22 @@ void Particle::Draw()
 							
 						
 						}
-						else
+						else if (xpos < 0.015)
 						{
 							//float w = (1 / 3) * 3.14159 * sqrt(r) * x;
 							
 								//float z = particle.Color.g;
-								buffer = Particle::CreateQuad(buffer, particle.size, glm::vec3(xpos, ypos, zpos), particle.Position*0.5f, particle.Color.g, 0.0f, 0.0f);
+
+
+								buffer = Particle::CreateQuad(buffer, particle.size, glm::vec3(xpos/1.5, ypos/10.0f, zpos), particle.Position*0.5f, particle.Color.g*0.8, 0.0f, 0.0f);
 								count += 6;
 								r = r + 0.0001f;
 								i = i + 1.0f;
 
+						}
+						else
+						{
+							i = 0.0f;
 						}
 						
 
@@ -93,7 +105,7 @@ void Particle::Draw()
 					else {
 						r = 0.001;
 					}
-
+					
 
 				}
 
@@ -120,10 +132,12 @@ void Particle::Draw()
 
 void Particle::Update() {
 	
+
+	
 	float x = 0.0f;
 	//float y = 0.0f;
 	float spred = 3.5f;
-	float speedIncreaze = 0.00001;
+	float speedIncreaze = 0.000001;
 	for (int  i = 0; i < this->amount; i++)
 	{
 		
@@ -131,10 +145,9 @@ void Particle::Update() {
 		p.life -= this->dt;
 		if (p.life > 0.0f)
 		{
-			
 
 			glm::vec3 k = Particle::setDirection();
-			p.Position -= glm::vec3(0.0f + x, (float)(((rand() % 100) / 100.0f) - 0.5) / 2.0f, 0.0f) * this->dt * (20.0f + speedIncreaze);// glm::vec3(0.0f + x * spred, ((rand() % 100) / 100.0f) - 0.5f, ((rand() % 100) / 100.0f) * spred);// //glm::vec3(0.0f+x, 0.0f+y, 0.0f+z) * this->dt* (float)(((rand() % 100) / 100.0f) - 0.5)*5.0f;//p.Direction * this->dt;//+ (float)glfwGetTime()/100);
+			p.Position -=glm::vec3(0.0f + x, (float)(((rand() % 100) / 100.0f) - 0.5) / 2.0f, 0.0f) * this->dt * (20.0f + speedIncreaze);// glm::vec3(0.0f + x * spred, ((rand() % 100) / 100.0f) - 0.5f, ((rand() % 100) / 100.0f) * spred);// //glm::vec3(0.0f+x, 0.0f+y, 0.0f+z) * this->dt* (float)(((rand() % 100) / 100.0f) - 0.5)*5.0f;//p.Direction * this->dt;//+ (float)glfwGetTime()/100);
 			p.Color.g += 0.0008f;
 			p.size -= speedIncreaze;
 			
@@ -151,15 +164,12 @@ void Particle::Update() {
 			p.Position = glm::vec3(0.0f, 0.0f, 0.0f);// Particle::setDirection(); //glm::vec3( 0.0f, 0.0f, 0.0f );
 			p.Color =  glm::vec4(1.0f, 0.0f, 0.0f, 1.0f );
 			p.life = (((rand() % 100) / 100.0f));
-			p.size = 0.008f;
+			p.size = 0.0008f;
 			
 		}
 	}
 }
 
-static const size_t MaxQuadCount = 1000000;
-static const size_t MaxVertexCount = MaxQuadCount * 4;
-static const size_t MaxIndexCount = MaxQuadCount * 6;
 
 
 void Particle::Init()
@@ -221,7 +231,7 @@ void Particle::Generate(Vertex& particles)
 	
 	particles.Position = glm::vec3(0.0f, 0.0f, 0.0f); //Particle::setDirection();//glm::vec3(0.0f, 0.0f, 0.0f);
 	particles.Color = glm::vec4( 1.0f, 0.0f, 0.0f, 1.0f );
-	particles.size = 0.008f;
+	particles.size = 0.0008f;
 	//particles.Color.g = 1.0f;
 
 }

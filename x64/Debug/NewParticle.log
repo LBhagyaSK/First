@@ -1,13 +1,13 @@
 ﻿  Particle.cpp
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Shader.h(56,40): warning C4101: 'e': unreferenced local variable
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(21,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(22,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(23,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(45,15): warning C4305: '-=': truncation from 'double' to 'float'
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(52,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(57,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(58,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(59,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(94,16): warning C4305: '=': truncation from 'double' to 'float'
-H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(126,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(24,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(25,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(56,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(61,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(62,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(63,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(91,141): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(106,16): warning C4305: '=': truncation from 'double' to 'float'
+H:\OpenGLProjects\Projects\OpenGLTestOne\NewParticle\Particle.cpp(140,32): warning C4305: 'initializing': truncation from 'double' to 'float'
   NewParticle.vcxproj -> H:\OpenGLProjects\Projects\OpenGLTestOne\x64\Debug\NewParticle.exe
